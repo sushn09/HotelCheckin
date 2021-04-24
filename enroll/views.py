@@ -27,3 +27,14 @@ def delete_record(request, id):
         frm = User.objects.get(pk=id)
         frm.delete()
         return HttpResponseRedirect('/')
+
+def update_record(request, id):
+    if request.method == 'POST':
+        fr = User.objects.get(pk=id)
+        fm = CustomerRegistration(request.POST, instance=fr)
+        if fm.is_valid():
+            fm.save()
+    else:
+        fr = User.objects.get(pk=id)
+        fm = CustomerRegistration(instance=fr)
+    return render(request, 'enroll/update_customer.html', {'form':fm})

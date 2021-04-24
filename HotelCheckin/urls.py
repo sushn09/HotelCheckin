@@ -19,5 +19,6 @@ from enroll import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.add_show, name="add_and_show")
+    path('', views.add_show, name="add_and_show"),
+    path('view-record', views.view_record, name="views_records"),
 ]

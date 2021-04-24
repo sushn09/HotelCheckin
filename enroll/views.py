@@ -17,3 +17,7 @@ def add_show(request):
         fm = CustomerRegistration()
         # cus = User.objects.all()
     return render(request, 'enroll/add_and_show.html', {'form':fm})
+
+def view_record(request):    
+    cus = User.objects.all()
+    return render(request, 'enroll/view_records.html', {'cus':cus})

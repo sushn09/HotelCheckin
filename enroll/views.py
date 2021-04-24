@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .forms import CustomerRegistration
 from .models import User
 
 # Create your views here.
-def add_show(request):
+def create_show(request):
     if request.method == 'POST':
         fm = CustomerRegistration(request.POST)
         if fm.is_valid():
@@ -18,6 +18,12 @@ def add_show(request):
         # cus = User.objects.all()
     return render(request, 'enroll/add_and_show.html', {'form':fm})
 
-def view_record(request):    
+def retrieve_record(request):    
     cus = User.objects.all()
     return render(request, 'enroll/view_records.html', {'cus':cus})
+
+def delete_record(request, id):
+    if request.method == 'POST':
+        frm = User.objects.get(pk=id)
+        frm.delete()
+        return HttpResponseRedirect('/')

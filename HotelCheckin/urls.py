@@ -19,6 +19,8 @@ from enroll import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.add_show, name="add_and_show"),
-    path('view-record', views.view_record, name="views_records"),
+    path('', views.create_show, name="create_and_show"),
+    path('retrieve-record', views.retrieve_record, name="retrieve_records"),
+    path('delete/<int:id>/', views.delete_record, name="delete_records"),
+
 ]

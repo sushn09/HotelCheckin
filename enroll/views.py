@@ -9,8 +9,13 @@ def create_show(request):
         if fm.is_valid():
             nm = fm.cleaned_data['name']
             em = fm.cleaned_data['email']
-            pw = fm.cleaned_data['password']
-            reg = User(name=nm, email=em, password=pw)
+            mob = fm.cleaned_data['mobile no']
+            stay = fm.cleaned_data['nightstay']
+            gs = fm.cleaned_data['guests']
+            intm = fm.cleaned_data['intime']
+            outtm = fm.cleaned_data['outtime']
+            pay = fm.cleaned_data['paymethod']
+            reg = User(name=nm, email=em, mobileno=mob, nightstay=stay, guests=gs, intime=intm, paymethod=pay)
             reg.save()
             fm = CustomerRegistration()
     else:
@@ -38,3 +43,5 @@ def update_record(request, id):
         fr = User.objects.get(pk=id)
         fm = CustomerRegistration(instance=fr)
     return render(request, 'enroll/update_customer.html', {'form':fm})
+
+

@@ -16,7 +16,9 @@
                 <th scope="col">No. of Guests</th>
                 <th scope="col">Check-in Time</th>
                 <th scope="col">Check-out Time</th>
+                <th scope="col">Amount</th>
                 <th scope="col">Payment Method</th>
+                <th scope="col">Verification ID</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -31,7 +33,10 @@
                         <td>{{c.guests}}</td>
                         <td>{{c.intime}}</td>
                         <td>{{c.outtime}}</td>
+                        <td>{{c.amount}}</td> 
                         <td>{{c.paymethod}}</td> 
+                        <td><img src="{{c.photo.url}}" alt="" height="100px"></td> 
+                        <!-- <td>{{c.photo}}</td> -->
                         <td>
                             <a href="{% url 'update_records' c.id %}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{% url 'delete_records' c.id %}" method="POST" class="d-inline">

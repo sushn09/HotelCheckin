@@ -49,12 +49,20 @@ def image_upload(request):
     if request.method == 'POST':
         fm = CustomerRegistration(request.POST, request.FILES)
         if fm.is_valid():
-            image=fm.cleaned_data.get("photo")
-            obj = User.objects.create(image=image)
-            obj.save()
-            print(obj)
+            fm.save()
             fm = CustomerRegistration()
-    cus = User.objects.all()    
+    cus = User.objects.all()
+    
     return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})
 
-
+# def image_upload(request):    
+#     if request.method == 'POST':
+#         fm = CustomerRegistration(request.POST, request.FILES)
+#         if fm.is_valid():
+#             image=fm.cleaned_data.get("photo")
+#             obj = User.objects.create(image=image)
+#             obj.save()
+#             print(obj)
+#             fm = CustomerRegistration()
+#     cus = User.objects.all()    
+#     return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})

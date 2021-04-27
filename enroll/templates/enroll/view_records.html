@@ -19,6 +19,7 @@
                 <th scope="col">Amount</th>
                 <th scope="col">Payment Method</th>
                 <th scope="col">Verification ID</th>
+                <th scope="col">Agree T&C</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -36,6 +37,7 @@
                         <td>{{c.amount}}</td> 
                         <td>{{c.paymethod}}</td> 
                         <td><img src="{{c.photo.url}}" alt="" height="100px"></td> 
+                        <td>{{c.agree}}</td> 
                         <!-- <td>{{c.photo}}</td> -->
                         <td>
                             <a href="{% url 'update_records' c.id %}" class="btn btn-warning btn-sm">Edit</a>

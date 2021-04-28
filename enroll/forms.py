@@ -24,8 +24,8 @@ class CustomerRegistration(forms.ModelForm):
             'mobileno': forms.TextInput(attrs={'class':'form-control'}),
             'nightstay': forms.NumberInput(attrs={'class':'form-control'}),
             'guests': forms.NumberInput(attrs={'class':'form-control'}),
-            'intime': forms.DateTimeInput(attrs={'class':'form-control'}),
-            'outtime': forms.DateTimeInput(attrs={'class':'form-control'}),
+            'intime': forms.DateTimeInput(attrs={'type':'date','class':'form-control'}),
+            'outtime': forms.DateTimeInput(attrs={'type':'date','class':'form-control'}),
             # 'amount' : forms.CheckboxSelectMultiple(choices=OPTIONS, attrs={'class': 'form-control'})
             'amount': forms.TextInput(attrs={'class':'form-control'}),
             # 'paymethod': forms.TextInput(attrs={'class':'form-control'}),

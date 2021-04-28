@@ -5,7 +5,7 @@ from .models import User
 # Create your views here.
 def create_show(request):
     if request.method == 'POST':
-        fm = CustomerRegistration(request.POST)
+        fm = CustomerRegistration(request.POST, request.FILES)
         if fm.is_valid():
             nm = fm.cleaned_data['name']
             em = fm.cleaned_data['email']
@@ -17,12 +17,15 @@ def create_show(request):
             amt = fm.cleaned_data['amount']
             pay = fm.cleaned_data['paymethod']
             pic = fm.cleaned_data['photo']
-            reg = User(name=nm, email=em, mobileno=mob, nightstay=stay, guests=gs, intime=intm, amount=amt, paymethod=pay, photo=pic)
+            agree = fm.cleaned_data['agree']
+            reg = User(name=nm, email=em, mobileno=mob, nightstay=stay, guests=gs, intime=intm, amount=amt, paymethod=pay, photo=pic, agree=agree)
             reg.save()
             fm = CustomerRegistration()
+            
     else:
         fm = CustomerRegistration()
-    return render(request, 'enroll/add_and_show.html', {'form':fm})
+    cus = User.objects.all()
+    return render(request, 'enroll/add_and_show.html', {'cus':cus,'form':fm})
 
 def retrieve_record(request):    
     cus = User.objects.all()
@@ -45,15 +48,15 @@ def update_record(request, id):
         fm = CustomerRegistration(instance=fr)
     return render(request, 'enroll/update_customer.html', {'form':fm})
 
-def image_upload(request):    
-    if request.method == 'POST':
-        fm = CustomerRegistration(request.POST, request.FILES)
-        if fm.is_valid():
-            fm.save()
-            fm = CustomerRegistration()
-    cus = User.objects.all()
+# def image_upload(request):    
+#     if request.method == 'POST':
+#         fm = CustomerRegistration(request.POST, request.FILES)
+#         if fm.is_valid():
+#             fm.save()
+#             fm = CustomerRegistration()
+#     cus = User.objects.all()
     
-    return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})
+#     return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})
 
 # def image_upload(request):    
 #     if request.method == 'POST':

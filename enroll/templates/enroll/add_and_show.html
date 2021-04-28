@@ -4,7 +4,7 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
         <h4 class="text-center alert alert-info">Add New Customer</h4>
-        <form action="" method="POST" >
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
             <!-- <a href="" class="btn btn-success btn-sm" type="submit">Upload </a> -->

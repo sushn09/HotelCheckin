@@ -11,5 +11,5 @@ urlpatterns = [
     path('retrieve-record', views.retrieve_record, name="retrieve_records"),
     path('delete/<int:id>/', views.delete_record, name="delete_records"),
     path('<int:id>/', views.update_record, name="update_records"),
-    path('', views.image_upload, name="image_upload"), 
+    # path('', views.image_upload, name="image_upload"), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

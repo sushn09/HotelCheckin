@@ -6,10 +6,13 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     mobileno = models.CharField(max_length=10)
+    guests = models.IntegerField()    
+    room = models.CharField(max_length=100, null=True)
     nightstay = models.IntegerField()
-    guests = models.IntegerField()
-    intime = models.DateTimeField(default=datetime.now())
-    outtime = models.DateTimeField(default=datetime.now())
+    indate = models.DateField(null=True)
+    intime = models.TimeField(null=True)
+    outdate = models.DateField(null=True)
+    outtime = models.TimeField(null=True)
     amount = models.FloatField(default=0.0)
     
     PAYMENT_OPTIONS= [

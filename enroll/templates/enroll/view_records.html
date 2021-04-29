@@ -4,6 +4,9 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
         <h4 class="text-center alert alert-info">Customer Information</h4>
+</div>
+<div class="row">
+    <div class="col-sm-12">
         {% if cus %}
         <table class="table table-hover" style="color:aquamarine">
             <thead>
@@ -12,9 +15,12 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile No.</th>
-                <th scope="col">No. of nights staying</th>
                 <th scope="col">No. of Guests</th>
+                <th scope="col">Type of Room</th>
+                <th scope="col">No. of nights staying</th>
+                <th scope="col">Check-in Date</th>
                 <th scope="col">Check-in Time</th>
+                <th scope="col">Check-out Date</th>
                 <th scope="col">Check-out Time</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Payment Method</th>
@@ -30,9 +36,12 @@
                         <td>{{c.name}}</td>
                         <td>{{c.email}}</td>
                         <td>{{c.mobileno}}</td>
-                        <td>{{c.nightstay}}</td>
                         <td>{{c.guests}}</td>
+                        <td>{{c.room}}</td>
+                        <td>{{c.nightstay}}</td>
+                        <td>{{c.indate}}</td>
                         <td>{{c.intime}}</td>
+                        <td>{{c.outdate}}</td>
                         <td>{{c.outtime}}</td>
                         <td>{{c.amount}}</td> 
                         <td>{{c.paymethod}}</td> 

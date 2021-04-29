@@ -1,9 +1,0 @@
-{% extends 'enroll/base.html' %}
-{% block content %} 
-<h1 class="text-center alert alert-info">Upload image</h1>
-<form action="{% url image_upload %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Upload">
-</form>
-{% endblock content %}

@@ -10,15 +10,18 @@ def create_show(request):
             nm = fm.cleaned_data['name']
             em = fm.cleaned_data['email']
             mob = fm.cleaned_data['mobileno']
-            stay = fm.cleaned_data['nightstay']
             gs = fm.cleaned_data['guests']
+            rm = fm.cleaned_data['room']
+            stay = fm.cleaned_data['nightstay']
+            indt = fm.cleaned_data['indate']
             intm = fm.cleaned_data['intime']
+            outdt = fm.cleaned_data['outdate']
             outtm = fm.cleaned_data['outtime']
             amt = fm.cleaned_data['amount']
             pay = fm.cleaned_data['paymethod']
             pic = fm.cleaned_data['photo']
             agree = fm.cleaned_data['agree']
-            reg = User(name=nm, email=em, mobileno=mob, nightstay=stay, guests=gs, intime=intm, amount=amt, paymethod=pay, photo=pic, agree=agree)
+            reg = User(name=nm, email=em, mobileno=mob, guests=gs, room=rm, nightstay=stay, indate=indt, intime=intm, outdate=outdt, outtime=outtm, amount=amt, paymethod=pay, photo=pic, agree=agree)
             reg.save()
             fm = CustomerRegistration()
             
@@ -47,25 +50,3 @@ def update_record(request, id):
         fr = User.objects.get(pk=id)
         fm = CustomerRegistration(instance=fr)
     return render(request, 'enroll/update_customer.html', {'form':fm})
-
-# def image_upload(request):    
-#     if request.method == 'POST':
-#         fm = CustomerRegistration(request.POST, request.FILES)
-#         if fm.is_valid():
-#             fm.save()
-#             fm = CustomerRegistration()
-#     cus = User.objects.all()
-    
-#     return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})
-
-# def image_upload(request):    
-#     if request.method == 'POST':
-#         fm = CustomerRegistration(request.POST, request.FILES)
-#         if fm.is_valid():
-#             image=fm.cleaned_data.get("photo")
-#             obj = User.objects.create(image=image)
-#             obj.save()
-#             print(obj)
-#             fm = CustomerRegistration()
-#     cus = User.objects.all()    
-#     return render(request, 'enroll/image_upload.html', {'cus':cus, 'form':fm})

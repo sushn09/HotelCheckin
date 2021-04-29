@@ -7,9 +7,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.create_show, name="create_and_show"),
-    path('retrieve-record', views.retrieve_record, name="retrieve_records"),
-    path('delete/<int:id>/', views.delete_record, name="delete_records"),
-    path('<int:id>/', views.update_record, name="update_records"),
+    path('', views.create_show.as_view(), name="create_and_show"),
+    path('retrieve-record', views.retrieve_record.as_view(), name="retrieve_records"),
+    path('<int:id>/', views.delete_record.as_view(), name="delete_records"),
+    path('<int:id>/', views.update_record.as_view(), name="update_records"),
     # path('', views.image_upload, name="image_upload"), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

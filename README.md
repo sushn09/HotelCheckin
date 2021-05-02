@@ -3,6 +3,24 @@ This project build for NIIT University's Capstone Project
 
 This is a CRUD operation based Hotel Check-in which wil help the user to Create record of the customer entering or exiting from a hotel, Retrieve the data from the database, Update or make anychanges to it & can Delete it from the database. 
 
+## Prerequisites of the system
+The system should have the following things installed:
+- Python
+- pip
+- Any text/code editor 
+
+#### To check if they are installed in the system you can use the following commands:
+
+- To check for python:
+```
+python --version
+```
+- To check for pip:
+```
+pip --version
+```
+If they are installed in your system, the current version of theirs will be shown. In case, any of the above mentioned things is not there, it is adviced to install it first.  
+
 ## Prerequisites
 - Python 3.6 
 - Django
@@ -26,7 +44,7 @@ env/Scripts/activate
 ```
 pip install django
 ```
-- Open VS Code or any editor
+- Open VS Code or any text editor
 - Start a project:
 ```
 django-admin startproject <name of your project>
